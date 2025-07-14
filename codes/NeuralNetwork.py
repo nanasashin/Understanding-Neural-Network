@@ -1,23 +1,17 @@
-import sys
-import numpy as np
-import matplotlib
+input  = [1, 3, 6, 4]
 
+weights = {
+    0: [2.4, 6, 3, 4.6],
+    1: [5.0, 10, 9.8, 8.5],
+    2: [2.9, 1.6, 5.3, 2.3],
+}
 
-test_input = [10.5, 9.6, 3.0]
+bias = [3, 10, 9]
 
-test_weight = [1.7, 2.1, 3.6]
+output = []
+x = 1
 
-bias = 3
+for x in range(0, len(bias)): 
+    output.append(input[0] * weights[x][0] + input[1] * weights[x][1] + input[2] * weights[x][2] + input[3] * weights[x][3] + bias[x])
 
-"""
-or
-
-test_output = 0
-
-for i in range(0, test_input.length())
-    test_output += test_input[i] * test_weight[i]
-
-test_input += bias
-"""
-test_output = test_input[0] * test_weight[0] + test_input[1] * test_weight[1] + test_input[2] * test_weight[2] + bias
-print(test_output)
+print(output)
