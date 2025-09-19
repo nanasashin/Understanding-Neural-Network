@@ -1,1 +1,1 @@
-Prictice and Implemantation of Neural Network
+My Practice and Implemantation of Neural Network
