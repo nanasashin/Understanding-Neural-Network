@@ -1,17 +1,21 @@
-input  = [1, 3, 6, 4]
+import numpy as np
 
-weights = {
-    0: [2.4, 6, 3, 4.6],
-    1: [5.0, 10, 9.8, 8.5],
-    2: [2.9, 1.6, 5.3, 2.3],
-}
+test_inputs = [
+    [10, 20, 6, 5],
+    [6, 8, 9, 10]
+]
 
-bias = [3, 10, 9]
+class LayerDense:
+    def __init__(self, n_input, n_neurons):
+        self.weights = 0.10 * np.random.randn(n_input, n_neurons)
+        self.biases = np.zeros((1, n_neurons))
 
-output = []
-x = 1
+    def forward(self, inputs):
+        return np.dot(inputs, self.weights) + self.biases
 
-for x in range(0, len(bias)): 
-    output.append(input[0] * weights[x][0] + input[1] * weights[x][1] + input[2] * weights[x][2] + input[3] * weights[x][3] + bias[x])
+class ActivationReLu:
+    def forward(self, inputs):
+        return np.maximum(0, inputs)
 
-print(output)
+print(ActivationReLu().forward(LayerDense(4, 8).forward(test_inputs)))
+
